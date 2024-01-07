@@ -1,0 +1,246 @@
+* {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-light-Blue: hsl(243, 100%, 93%);
+  --clr-Grayish-Blue: hsl(229, 7%, 55%);
+  --clr-Dark-Blue: hsl(228, 56%, 26%);
+  --clr-ult-DarkBlue: hsl(229, 57%, 11%);
+  --clr-gradient-1: hsl(6, 100%, 80%);
+  --clr-gradient-2: hsl(335, 100%, 65%);
+}
+
+::selection {
+  background-color: var(--clr-ult-DarkBlue);
+}
+
+body {
+  background-color: var(--clr-ult-DarkBlue);
+  position: relative;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 100vh;
+}
+
+@media screen and (width < 767px) {
+  .container {
+    margin-inline: 10px;
+  }
+}
+
+picture img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 375px) {
+  picture img {
+    left: 0;
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    gap: 10px;
+    flex-direction: column;
+    max-width: 750px;
+  }
+}
+
+.box-1 {
+  background-color: var(--clr-Dark-Blue);
+  padding: 2rem 2.5rem;
+  max-width: 300px;
+  width: 100%;
+  border-radius: 10px 80px 10px 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 767px) {
+  .box-1 {
+    padding: 2.6rem;
+    max-width: 500px;
+    width: 100%;
+  }
+}
+
+.box-1 .icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.box-1 .icons img {
+  cursor: pointer;
+  display: block;
+  padding: 10px;
+  background-color: var(--clr-ult-DarkBlue);
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+}
+
+.box-1 .icons img:nth-child(3) {
+  width: 45px;
+}
+
+.container .box-2 {
+  background-color: var(--clr-Dark-Blue);
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  padding: 1.4rem 1.2rem 0;
+  bottom: -13px;
+  border-radius: 10px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 767px) {
+  .container .box-2 {
+    padding: 1.5rem;
+    bottom: auto;
+  }
+  .box-2 > p:nth-child(1) {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+.box-2 .loading > p:nth-child(1) {
+  color: var(--clr-Grayish-Blue);
+  font-size: 13px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+
+.box-2 .loading > p:nth-child(1) span {
+  color: var(--clr-light-Blue);
+  font-weight: 700;
+}
+
+.box-2 .loading {
+  position: relative;
+}
+
+.box-2 .load-bg {
+  position: absolute;
+  width: calc(100% - 60px);
+  height: 15px;
+  background-color: var(--clr-ult-DarkBlue);
+  left: 30px;
+  border-radius: 20px;
+}
+
+.box-2 .load-bg .load-fill {
+  position: absolute;
+  background-image: linear-gradient(hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+  height: calc(100% - 6px);
+  border-radius: 20px;
+  top: 3px;
+  left: 2.5px;
+}
+
+.box-2 .load-bg .load-fill::before {
+  content: "";
+  top: 0.7px;
+  right: 1.5px;
+  border-radius: 50%;
+  background-color: var(--clr-light-Blue);
+  position: absolute;
+  width: 8px;
+  height: 8px;
+}
+
+.pop-up {
+  position: absolute;
+  top: -115px;
+  right: 0;
+  background-color: var(--clr-light-Blue);
+  padding: 1rem 1.6rem;
+  border-radius: 10px 10px 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+  .pop-up {
+    right: auto;
+    top: calc(100% + 40px);
+    position: absolute;
+    border-radius: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 60px);
+  }
+
+  .footer > p:nth-child(2) {
+    right: 0;
+    left: 163px;
+  }
+}
+
+.pop-up::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0px 20px 20px 0;
+  border-color: transparent transparent var(--clr-light-Blue) transparent;
+  right: 0;
+  bottom: -19px;
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 767px) {
+  .pop-up::before {
+    display: none;
+  }
+}
+
+.pop-up p {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--clr-Grayish-Blue);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.pop-up span {
+  font-size: 36px;
+  color: var(--clr-ult-DarkBlue);
+  font-weight: 700;
+  text-transform: none;
+  margin-right: 5px;
+}
+
+.footer {
+  display: flex;
+  top: calc(100% + 10px);
+  justify-content: space-between;
+  position: absolute;
+  color: var(--clr-light-Blue);
+  font-size: 13px;
+  font-weight: 700;
+  width: 100%;
+}
